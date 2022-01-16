@@ -45,6 +45,8 @@ class Trainer:
         """
         # Checking the data shape whether iit has same number of records
         assert x_train.shape[0] == y_train.shape[0] or x_val.shape[0] == y_val.shape[0], "Data shape mismatched..."
+
+        print(f"Problem statement selected : {self.problem_type} .")
         # Selecting required models
         models = model_dict[self.problem_type]
         # Model Training

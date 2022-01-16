@@ -30,7 +30,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     print("Parser data collected...")
     # Validating parser variables
-    print(args)
+    print(f"Parsed Data : {args}")
     validate_parser_variable(args)
     print("Parser variables validated successfully...")
     # Feeding the data to the class of respective problem statement.
@@ -53,6 +53,13 @@ if __name__ == "__main__":
                                    target_column=args.target_feature)
     print(f"X feature set and target feature split...")
 
+    # Validating if the target feature is encoded correctly else correcting
+    if args.problem_type == "classification":
+        # Checking if the variables of the feature contains any continuous type of variables
+        if y[args.target_feature].dtype == "float32" or y[args.target_feature].dtype == "float64":
+            # Updating all feature variable to integers for training purpose
+            y[args.target_feature] = y[args.target_feature].astype(int)
+
     if args.pre_proc == "true":
         # Defining data processing class
         processor = processing.PreProcessing(X, y)
@@ -74,7 +81,7 @@ if __name__ == "__main__":
     # Creating a validation data split from training data
     X_train, y_train, X_val, y_val, val_size = train_validation_split(X, y)
     print(f"Validation data prepared."
-          f" Train- Validation ratio taken {int(100 - val_size * 100)} % - {int(val_size * 100)} %")
+          f" Train - Validation ratio taken {int(100 - val_size * 100)} % - {int(val_size * 100)} % .")
 
     # Defining trainer
     trainer = training.Trainer(problem_type=args.problem_type)

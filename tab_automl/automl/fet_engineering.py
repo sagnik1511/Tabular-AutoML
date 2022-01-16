@@ -43,7 +43,7 @@ class Encode:
         if len(unique_items) <= hot_encode_threshold or \
                 (least_present_unique_item_count / self.length) >= least_present_unique_item_ratio:
             # perform one hot encoding
-            encoded_feature = pd.dummy(self.x[feature])
+            encoded_feature = pd.get_dummies(self.x[feature])
             # dropping the parent feature after encoding
             self.x.drop(feature, 1, inplace=True)
             # adding the encoded feature set to x
