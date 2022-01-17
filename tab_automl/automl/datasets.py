@@ -18,6 +18,7 @@ class ClassificationDataset:
         # storing the columns overview
         self.columns = pd.Series([str(self.data[feature].dtype) for feature in self.data.columns])
         self.labels = None
+        print("Populated the dataframe with data records...")
 
     def prepare_x_and_y(self,
                         feature_set_columns,
@@ -37,6 +38,7 @@ class ClassificationDataset:
         x = self.data[feature_set_columns]
         y = self.data[[target_column]]
         self.labels = pd.Series(y.all()).unique()
+        print("X feature set and target feature has been split...")
 
         return x, y
 
@@ -54,6 +56,7 @@ class RegressionDataset:
         self.data = pd.read_csv(path)
         # storing the columns overview
         self.columns = pd.Series([str(self.data[feature].dtype) for feature in self.data.columns])
+        print("Populated the dataframe with data records...")
 
     def prepare_x_and_y(self,
                         feature_set_columns,
@@ -71,6 +74,7 @@ class RegressionDataset:
 
         x = self.data[feature_set_columns]
         y = self.data[[target_column]]
+        print("X feature set and target feature has been split...")
 
         return x, y
 
@@ -94,6 +98,7 @@ class Iris:
         # storing the columns overview
         self.columns = pd.Series([str(self.data[feature].dtype) for feature in self.data.columns])
         self.labels = None
+        print("Populated the dataframe with data records...")
 
     def prepare_x_and_y(self,
                         feature_set_columns=['Id', 'SepalLengthCm', 'SepalWidthCm', 'PetalLengthCm', 'PetalWidthCm'],
@@ -112,6 +117,7 @@ class Iris:
         x = self.data[feature_set_columns]
         y = self.data[[target_column]]
         self.labels = pd.Series(y.all()).unique()
+        print("X feature set and target feature has been split...")
 
         return x, y
 
@@ -134,6 +140,7 @@ class Wine:
         self.data = pd.read_csv("tab_automl/datasets/wine.csv")
         # storing the columns overview
         self.columns_dtypes = pd.Series([str(self.data[feature].dtype) for feature in self.data.columns])
+        print("Populated the dataframe with data records...")
 
     def prepare_x_and_y(self,
                         feature_set_columns=['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar', 'chlorides', 'free sulfur dioxide', 'total sulfur dioxide', 'density', 'pH', 'sulphates', 'alcohol'],
@@ -151,5 +158,6 @@ class Wine:
 
         x = self.data[feature_set_columns]
         y = self.data[[target_column]]
+        print("X feature set and target feature has been split...")
 
         return x, y

@@ -24,8 +24,9 @@ parser.add_argument("-sfd", "--save-fet-data", type=str, default="true", metavar
 parser.add_argument("-sm", "--save-model", type=str, default="true", metavar="",
                     help="Save the best trained model")
 
+
 # Main function
-if __name__ == "__main__":
+def main():
     # Retrieving parser variables
     args = parser.parse_args()
     print("Parser data collected...")
@@ -38,7 +39,6 @@ if __name__ == "__main__":
         dataset = datasets.ClassificationDataset(args.data_source)
     else:
         dataset = datasets.RegressionDataset(args.data_source)
-    print("Populated the dataframe with data records...")
 
     # Accessing the feature names to validate the X and y of the data
     features = dataset.data.columns.tolist()
@@ -49,9 +49,8 @@ if __name__ == "__main__":
     print(f"Features taken for X : {x_features}")
     print(f"Target feature : {args.target_feature}")
     # Splitting the data into X and y
-    X, y = dataset.prepare_x_and_y(feature_set_columns=x_features,
+    x, y = dataset.prepare_x_and_y(feature_set_columns=x_features,
                                    target_column=args.target_feature)
-    print(f"X feature set and target feature split...")
 
     # Validating if the target feature is encoded correctly else correcting
     if args.problem_type == "classification":
@@ -62,31 +61,33 @@ if __name__ == "__main__":
 
     if args.pre_proc == "true":
         # Defining data processing class
-        processor = processing.PreProcessing(X, y)
+        processor = processing.PreProcessing(x, y)
         # processing data
-        X, y = processor.run()
+        x, y = processor.run()
         # Saving the processed data if required
         if args.save_proc_data == "true":
             processor.save_data()
 
     if args.fet_eng == "true":
         # Defining the feature engineering class
-        feature_engineer = fet_engineering.FeatureEngineering(X, y)
+        feature_engineer = fet_engineering.FeatureEngineering(x, y)
         # engineering features
-        X, y = feature_engineer.run()
+        x, y = feature_engineer.run()
         # Saving the feature engineered data if required
         if args.save_fet_data == "true":
             feature_engineer.save_data()
 
     # Creating a validation data split from training data
-    X_train, y_train, X_val, y_val, val_size = train_validation_split(X, y)
-    print(f"Validation data prepared."
-          f" Train - Validation ratio taken {int(100 - val_size * 100)} % - {int(val_size * 100)} % .")
+    x_train, y_train, x_val, y_val = train_validation_split(x, y)
 
     # Defining trainer
     trainer = training.Trainer(problem_type=args.problem_type)
     # Training models on the data
     save_model = args.save_model == "true"  # Defining the model saving
-    trainer.single_model_trainer(X_train, y_train, X_val, y_val, save_model=save_model)
+    trainer.single_model_trainer(x_train, y_train, x_val, y_val, save_model=save_model)
 
-    print("AutoML executed successfully...")
+    print("AutoML executed successfully...\n")
+
+
+if __name__ == "__main__":
+    main()

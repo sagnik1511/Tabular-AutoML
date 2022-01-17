@@ -32,5 +32,7 @@ def train_validation_split(x, y):
 
     # Splitting dataset into train and validation
     x_train, x_val, y_train, y_val = train_test_split(x, y, test_size=val_ratio, random_state=42)
+    print(f"Validation data prepared."
+          f" Train - Validation ratio taken {int(100 - val_ratio * 100)} % - {int(val_ratio * 100)} % .")
 
-    return x_train, y_train, x_val, y_val, val_ratio
+    return x_train, y_train, x_val, y_val
