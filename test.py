@@ -9,7 +9,7 @@ from tab_automl.utils.training import train_validation_split
 
 
 def classification_test():
-    print("Testing through Regression AutoML ...")
+    print("Testing through Classification AutoML ...")
     # Loading the dataset
     dataset = Iris()
     # X feature set and target feature split
@@ -36,7 +36,7 @@ def classification_test():
 
 
 def regression_test():
-    print("Testing through Classification AutoML ...")
+    print("Testing through Regression AutoML ...")
     # Loading the dataset
     dataset = Wine()
     # X feature set and target feature split
