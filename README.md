@@ -1,4 +1,4 @@
-<div align="center"><img src="assets/logo.png" alt = "Tabular-AutoML"></div>
+<div align="center"><img src="assets/banner.png" alt = "Tabular-AutoML"></div>
 
 <div align="center"><h1>Tabular-AutoML</h1></div>
 <div align="center"><h2>AutoML Package for tabular datasets</h2></div>
