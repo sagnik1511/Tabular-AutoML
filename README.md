@@ -76,16 +76,22 @@ optional arguments:
 
 ---
 
-1. Coment on the issue on which you want to work.
+1. Comment on the issue on which you want to work.
 2. If you get assigned, fork the repository.
-3. Create a new branch which should be named on your github user_id , e.g. ```sagnik1511```.
+3. Create a new branch which should be named on your GitHub user_id , e.g. ```sagnik1511```.
 4. Update the changes on that branch.
 5. Create a PR (Pull request) to the *`JWOC`* branch of the parent repository.
-6. The PR title should named like this 
+6. The PR title should be named like this 
 ```[Issue #{Issue Number}] Heading of the issue```.
 7. Describe the changes you have done with proper reasons.
 
 ---
+
+### Pull Request Acceptance Guidelines for JWOC :
+
+        After merging, the code will be passed through CI checks,
+        if it passes successfully, then participants will get points.
+        Otherwise it has to be updated again.
 
 <div align = "left"><h2>Contributors</h2></div>
 
