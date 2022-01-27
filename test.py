@@ -1,7 +1,7 @@
 """
 This file is for testing the integration of the library classes and functions.
 """
-from tab_automl.automl.datasets import Iris, Wine
+from tab_automl.automl.Datasets import Iris, Wine
 from tab_automl.automl.training import Trainer
 from tab_automl.automl.processing import PreProcessing
 from tab_automl.automl.fet_engineering import FeatureEngineering
