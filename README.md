@@ -87,6 +87,8 @@ optional arguments:
 
 ---
 
+**This branch will hold all updates of JWOC.**
+
 <div align = "left"><h2>Contributors</h2></div>
 
 ---
