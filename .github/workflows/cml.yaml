@@ -1,5 +1,10 @@
 name: CI_test_pipeline1
-on: [push]
+on:
+  pull_request_target:
+    branches:
+      - main
+    types:
+      - opened
 jobs:
   run:
     runs-on: ubuntu-latest
