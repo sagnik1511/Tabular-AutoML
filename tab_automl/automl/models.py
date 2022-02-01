@@ -17,7 +17,7 @@ single_model_dict = {
         "Lasso Regression": Lasso,
         "Ridge Regression": Ridge,
         "Random Forest Regression": RandomForestRegressor,
-        "Support Vector Regression": SVR
+        "Support Vector Regression": SVR,
         "KNN Regressor": KNeighborsRegressor
     },
     "classification": {
