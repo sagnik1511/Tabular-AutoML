@@ -8,6 +8,7 @@ from sklearn.linear_model import Lasso, LinearRegression, Ridge
 from sklearn.svm import SVR 
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn.neighbors import KNeighborsRegressor
 
 
 single_model_dict = {
@@ -17,6 +18,7 @@ single_model_dict = {
         "Ridge Regression": Ridge,
         "Random Forest Regression": RandomForestRegressor,
         "Support Vector Regression": SVR
+        "KNN Regressor": KNeighborsRegressor
     },
     "classification": {
         "Decision Tree Classifier": DecisionTreeClassifier,
