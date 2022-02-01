@@ -16,13 +16,13 @@ class ClassificationDataset:
 
     def __init__(self, path):
         # reading the dataset from source
-        if path[-4:] == ".txt":
+        if path.endswith(".txt"):
             self.data = pd.read_table(path, delimiter='\s')
-        elif path[-5:] == ".json":
+        elif path.endswith(".json"):
             self.data = pd.read_json(path)
-        elif path[-5:] == ".xlsx":
+        elif path.endswith(".xlsx"):
             self.data = pd.read_excel(path)
-        elif path[-7:] == ".sqlite":
+        elif path.endswith(".sqlite"):
             table_name = input("table name :")
             db = sqlite3.connect(path)
             self.data = pd.read_sql_query(f'Select * from {table_name}', db)
@@ -66,13 +66,13 @@ class RegressionDataset:
 
     def __init__(self, path):
         # reading the dataset from source
-        if path[-4:] == ".txt":
-            self.data = pd.read_table(path,delimiter='\s')
-        elif path[-5:] == ".json":
-            self.data=pd.read_json(path)
-        elif path[-5:] == ".xlsx":
-            self.data=pd.read_excel(path)
-        elif path[-7:] == ".sqlite":
+        if path.endswith(".txt"):
+            self.data = pd.read_table(path, delimiter='\s')
+        elif path.endswith(".json"):
+            self.data = pd.read_json(path)
+        elif path.endswith(".xlsx"):
+            self.data = pd.read_excel(path)
+        elif path.endswith(".sqlite"):
             table_name = input("table name :")
             db = sqlite3.connect(path)
             self.data = pd.read_sql_query(f'Select * from {table_name}', db)
