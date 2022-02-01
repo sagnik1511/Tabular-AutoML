@@ -7,6 +7,7 @@ from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.linear_model import Lasso, LinearRegression, Ridge
 from sklearn.svm import SVR 
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.neighbors import KNeighborsClassifier
 
 
 single_model_dict = {
@@ -22,5 +23,6 @@ single_model_dict = {
         "Light Gradient Boosting Classifier": LGBMClassifier,
         "Random Forest Classifier": RandomForestClassifier,
         "XGBoost Classifier": XGBClassifier
+        "KNN classifier":KNeighborsClassifier
     }
 }
