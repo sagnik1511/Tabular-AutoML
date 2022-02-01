@@ -22,7 +22,7 @@ single_model_dict = {
         "Decision Tree Classifier": DecisionTreeClassifier,
         "Light Gradient Boosting Classifier": LGBMClassifier,
         "Random Forest Classifier": RandomForestClassifier,
-        "XGBoost Classifier": XGBClassifier
+        "XGBoost Classifier": XGBClassifier,
         "KNN classifier":KNeighborsClassifier
     }
 }
