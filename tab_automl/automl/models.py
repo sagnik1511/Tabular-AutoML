@@ -4,8 +4,8 @@ This files holds all codes for defined and used models through the life cycle of
 from lightgbm import LGBMClassifier
 from xgboost import XGBClassifier
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
-from sklearn.linear_model import Lasso, LinearRegression, Ridge
 from sklearn.svm import SVR
+from sklearn.linear_model import Lasso, LinearRegression, Ridge
 from sklearn.tree import DecisionTreeClassifier
 
 
