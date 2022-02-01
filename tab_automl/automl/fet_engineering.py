@@ -125,13 +125,13 @@ class FeatureEngineering:
             y: (pandas.DataFrame) Processed target feature
 
         """
-        print("Initiating Feature Engineering...")
+        print(f"Initiating Feature Engineering...")
         # Using Encoder
-        print("Encoding features...")
+        print(f"Encoding features...")
         encoder = Encode(self.x, self.y)
         self.x, self.y = encoder.run()
-        print("Encoding finished...")
+        print(f"Encoding finished...")
 
-        print("Finishing Feature Engineering...")
+        print(f"Finishing Feature Engineering...")
 
         return self.x, self.y

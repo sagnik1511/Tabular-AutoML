@@ -50,7 +50,7 @@ class Trainer:
         # Selecting required models
         models = model_dict[self.problem_type]
         # Model Training
-        print("Initiating Model Training...")
+        print(f"Initiating Model Training...")
         # Declaring best scores to save the best model
         best_score = 0
         best_model = None
@@ -97,7 +97,7 @@ class Trainer:
                           f"Current Best Model : {best_model_name}."
                           f"Current best validation score : {'%.6f' % best_score}")
 
-        print("Model training completed...")
+        print(f"Model training completed...")
 
         # Saving the best model
         if save_model:
