@@ -1,6 +1,8 @@
 """
 This file holds all codes for custom and defined datasets.
 """
+import sqlite3
+
 import pandas as pd
 
 
@@ -14,7 +16,20 @@ class ClassificationDataset:
 
     def __init__(self, path):
         # reading the dataset from source
-        self.data = pd.read_csv(path)
+        if path.endswith(".txt"):
+            self.data = pd.read_table(path, delimiter='\s')
+        elif path.endswith(".json"):
+            self.data = pd.read_json(path)
+        elif path.endswith(".xlsx"):
+            self.data = pd.read_excel(path)
+        elif path.endswith(".sqlite"):
+            table_name = input("table name :")
+            db = sqlite3.connect(path)
+            self.data = pd.read_sql_query(f'Select * from {table_name}', db)
+        elif path.endswith(".csv"):
+            self.data = pd.read_csv(path)
+        else:
+            print("File type not supported")
         # storing the columns overview
         self.columns = pd.Series([str(self.data[feature].dtype) for feature in self.data.columns])
         self.labels = None
@@ -53,7 +68,21 @@ class RegressionDataset:
 
     def __init__(self, path):
         # reading the dataset from source
-        self.data = pd.read_csv(path)
+        if path.endswith(".txt"):
+            self.data = pd.read_table(path, delimiter='\s')
+        elif path.endswith(".json"):
+            self.data = pd.read_json(path)
+        elif path.endswith(".xlsx"):
+            self.data = pd.read_excel(path)
+        elif path.endswith(".sqlite"):
+            table_name = input("table name :")
+            db = sqlite3.connect(path)
+            self.data = pd.read_sql_query(f'Select * from {table_name}', db)
+        elif path.endswith(".csv"):
+            self.data = pd.read_csv(path)
+        else:
+            print("File type not supported")
+
         # storing the columns overview
         self.columns = pd.Series([str(self.data[feature].dtype) for feature in self.data.columns])
         print(f"Populated the dataframe with data records...")
