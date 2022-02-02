@@ -1,6 +1,8 @@
 """
 This file holds all codes for custom and defined datasets.
 """
+import sqlite3
+
 import pandas as pd
 
 
@@ -14,11 +16,24 @@ class ClassificationDataset:
 
     def __init__(self, path):
         # reading the dataset from source
-        self.data = pd.read_csv(path)
+        if path.endswith(".txt"):
+            self.data = pd.read_table(path, delimiter='\s')
+        elif path.endswith(".json"):
+            self.data = pd.read_json(path)
+        elif path.endswith(".xlsx"):
+            self.data = pd.read_excel(path)
+        elif path.endswith(".sqlite"):
+            table_name = input("table name :")
+            db = sqlite3.connect(path)
+            self.data = pd.read_sql_query(f'Select * from {table_name}', db)
+        elif path.endswith(".csv"):
+            self.data = pd.read_csv(path)
+        else:
+            print("File type not supported")
         # storing the columns overview
         self.columns = pd.Series([str(self.data[feature].dtype) for feature in self.data.columns])
         self.labels = None
-        print("Populated the dataframe with data records...")
+        print(f"Populated the dataframe with data records...")
 
     def prepare_x_and_y(self,
                         feature_set_columns,
@@ -38,7 +53,7 @@ class ClassificationDataset:
         x = self.data[feature_set_columns]
         y = self.data[[target_column]]
         self.labels = pd.Series(y.all()).unique()
-        print("X feature set and target feature has been split...")
+        print(f"X feature set and target feature has been split...")
 
         return x, y
 
@@ -53,10 +68,24 @@ class RegressionDataset:
 
     def __init__(self, path):
         # reading the dataset from source
-        self.data = pd.read_csv(path)
+        if path.endswith(".txt"):
+            self.data = pd.read_table(path, delimiter='\s')
+        elif path.endswith(".json"):
+            self.data = pd.read_json(path)
+        elif path.endswith(".xlsx"):
+            self.data = pd.read_excel(path)
+        elif path.endswith(".sqlite"):
+            table_name = input("table name :")
+            db = sqlite3.connect(path)
+            self.data = pd.read_sql_query(f'Select * from {table_name}', db)
+        elif path.endswith(".csv"):
+            self.data = pd.read_csv(path)
+        else:
+            print("File type not supported")
+
         # storing the columns overview
         self.columns = pd.Series([str(self.data[feature].dtype) for feature in self.data.columns])
-        print("Populated the dataframe with data records...")
+        print(f"Populated the dataframe with data records...")
 
     def prepare_x_and_y(self,
                         feature_set_columns,
@@ -74,7 +103,7 @@ class RegressionDataset:
 
         x = self.data[feature_set_columns]
         y = self.data[[target_column]]
-        print("X feature set and target feature has been split...")
+        print(f"X feature set and target feature has been split...")
 
         return x, y
 
@@ -98,7 +127,7 @@ class Iris:
         # storing the columns overview
         self.columns = pd.Series([str(self.data[feature].dtype) for feature in self.data.columns])
         self.labels = None
-        print("Populated the dataframe with data records...")
+        print(f"Populated the dataframe with data records...")
 
     def prepare_x_and_y(self,
                         feature_set_columns=['Id', 'SepalLengthCm', 'SepalWidthCm', 'PetalLengthCm', 'PetalWidthCm'],
@@ -117,7 +146,7 @@ class Iris:
         x = self.data[feature_set_columns]
         y = self.data[[target_column]]
         self.labels = pd.Series(y.all()).unique()
-        print("X feature set and target feature has been split...")
+        print(f"X feature set and target feature has been split...")
 
         return x, y
 
@@ -140,7 +169,7 @@ class Wine:
         self.data = pd.read_csv("tab_automl/datasets/wine.csv")
         # storing the columns overview
         self.columns_dtypes = pd.Series([str(self.data[feature].dtype) for feature in self.data.columns])
-        print("Populated the dataframe with data records...")
+        print(f"Populated the dataframe with data records...")
 
     def prepare_x_and_y(self,
                         feature_set_columns=['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar', 'chlorides', 'free sulfur dioxide', 'total sulfur dioxide', 'density', 'pH', 'sulphates', 'alcohol'],
@@ -158,6 +187,6 @@ class Wine:
 
         x = self.data[feature_set_columns]
         y = self.data[[target_column]]
-        print("X feature set and target feature has been split...")
+        print(f"X feature set and target feature has been split...")
 
         return x, y

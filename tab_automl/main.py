@@ -29,11 +29,11 @@ parser.add_argument("-sm", "--save-model", type=str, default="true", metavar="",
 def main():
     # Retrieving parser variables
     args = parser.parse_args()
-    print("Parser data collected...")
+    print(f"Parser data collected...")
     # Validating parser variables
     print(f"Parsed Data : {args}")
     validate_parser_variable(args)
-    print("Parser variables validated successfully...")
+    print(f"Parser variables validated successfully...")
     # Feeding the data to the class of respective problem statement.
     if args.problem_type == "classification":
         dataset = datasets.ClassificationDataset(args.data_source)
@@ -86,7 +86,7 @@ def main():
     save_model = args.save_model == "true"  # Defining the model saving
     trainer.single_model_trainer(x_train, y_train, x_val, y_val, save_model=save_model)
 
-    print("AutoML executed successfully...\n")
+    print(f"AutoML executed successfully...\n")
 
 
 if __name__ == "__main__":
