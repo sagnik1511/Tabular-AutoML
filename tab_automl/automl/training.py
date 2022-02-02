@@ -66,9 +66,9 @@ class Trainer:
             # Storing accuracy scores
             train_score = model.score(x_train, y_train)
             val_score = model.score(x_val, y_val)
-            print(f"Model trained in {'%.4f'%(time.time() - start_time)} seconds")
-            print(f"Model Accuracy Score on training data : {'%.6f'%train_score}")
-            print(f"Model Accuracy Score on validation data : {'%.6f'%val_score}")
+            print(f"[ {model_name} ] Model trained in {'%.4f'%(time.time() - start_time)} seconds")
+            print(f"[ {model_name} ] Model Accuracy Score on training data : {'%.6f'%train_score}")
+            print(f"[ {model_name} ] Model Accuracy Score on validation data : {'%.6f'%val_score}")
             # Model Checkpoint to save the best result and model
             if result_monitor == "val_score":
                 # Using validation score to monitor best model

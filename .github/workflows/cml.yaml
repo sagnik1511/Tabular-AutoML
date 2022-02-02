@@ -1,10 +1,7 @@
 name: CI_test_pipeline1
 on:
-  pull_request_target:
-    branches:
-      - JWOC
-    types:
-      - opened
+  pull_request:
+    branches: '*'
 jobs:
   run:
     runs-on: ubuntu-latest
