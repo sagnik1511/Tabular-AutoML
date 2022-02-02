@@ -23,6 +23,6 @@ single_model_dict = {
         "Light Gradient Boosting Classifier": LGBMClassifier,
         "Random Forest Classifier": RandomForestClassifier,
         "XGBoost Classifier": XGBClassifier,
-        "KNN classifier":KNeighborsClassifier
+        "KNN Classifier": KNeighborsClassifier
     }
 }
