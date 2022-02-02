@@ -195,13 +195,13 @@ class PreProcessing:
             y: (pandas.DataFrame) Processed target feature
 
         """
-        print("Initiating Preprocessing...")
+        print(f"Initiating Preprocessing...")
         # Using Null Processor
-        print("Going through null values and features...")
+        print(f"Going through null values and features...")
         null_dropper = NullProcessing(self.x, self.y)
         self.x, self.y = null_dropper.run()
-        print("Null values and features processed...")
+        print(f"Null values and features processed...")
 
-        print("Finishing Preprocessing...")
+        print(f"Finishing Preprocessing...")
 
         return self.x, self.y
