@@ -78,8 +78,10 @@ class RegressionDataset:
             table_name = input("table name :")
             db = sqlite3.connect(path)
             self.data = pd.read_sql_query(f'Select * from {table_name}', db)
-        else:
+        elif path.endswith(".csv"):
             self.data = pd.read_csv(path)
+        else:
+            print("File type not supported")
 
         # storing the columns overview
         self.columns = pd.Series([str(self.data[feature].dtype) for feature in self.data.columns])
