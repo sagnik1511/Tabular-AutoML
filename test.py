@@ -67,6 +67,7 @@ def test():
     classification_test()
     # Testing Regression
     regression_test()
+    print("For check")
 
 
 if __name__ == "__main__":
