@@ -60,6 +60,14 @@ def regression_test():
     # Training AutoML and saving the best model
     trainer.single_model_trainer(x_train=x_train, y_train=y_train, x_val=x_val, y_val=y_val, save_model=True)
     print("Regression test completed successfully...\n")
+    
+def clustering_test():
+    print(f"Testing through Clustering AutoML ...")
+    # Loading the dataset
+    dataset = Credit_Card_Customer_Data()
+    # X feature set and target feature split
+    x = dataset.prepare_x()
+    print(f"Clustering test completed successfully...\n")
 
 
 def test():
@@ -67,6 +75,8 @@ def test():
     classification_test()
     # Testing Regression
     regression_test()
+    # Testing Clustering 
+    clustering_test()
 
 
 if __name__ == "__main__":
