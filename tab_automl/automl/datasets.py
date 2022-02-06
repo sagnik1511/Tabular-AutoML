@@ -78,7 +78,8 @@ class RegressionDataset:
 
         return x, y
     
-class Clustering:
+    
+class ClusteringDataset:
     """
 
     Dataset Class for Clustering.
@@ -191,6 +192,7 @@ class Wine:
 
         return x, y
     
+    
 class Credit_Card_Customer_Data:
     """
 
@@ -212,14 +214,11 @@ class Credit_Card_Customer_Data:
         self.labels = None
         print(f"Populated the dataframe with data records...")
 
-    def prepare_x(self,
-                        feature_set_columns=['Customer Key', 'Avg_Credit_Limit', 'Total_Credit_Cards',
-                                             'Total_visits_bank', 'Total_visits_online' ,'Total_calls_made']):
         """
-        Function to set x
+        Defining x
         """
 
-        x = self.data[feature_set_columns]
+        x = self.data
         print(f"X feature set has been set...")
 
         return x
