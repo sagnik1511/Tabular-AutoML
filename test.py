@@ -61,13 +61,13 @@ def regression_test():
     trainer.single_model_trainer(x_train=x_train, y_train=y_train, x_val=x_val, y_val=y_val, save_model=True)
     print("Regression test completed successfully...\n")
 
+
 def test():
     # Testing classification
     classification_test()
     # Testing Regression
     regression_test()
    
-
 
 if __name__ == "__main__":
     test()
