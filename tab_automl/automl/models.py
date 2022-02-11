@@ -17,7 +17,7 @@ single_model_dict = {
         "Linear Regression": LinearRegression,
         "Lasso Regression": Lasso,
         "Ridge Regression": Ridge,
-        "Random Forest Regression": RandomForestRegressor,
+        "Random Forest Regression": RandomForestRegressor
     },
     "classification": {
         "Decision Tree Classifier": DecisionTreeClassifier,
