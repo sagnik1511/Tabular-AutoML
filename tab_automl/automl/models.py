@@ -25,8 +25,8 @@ single_model_dict = {
         "Random Forest Classifier": RandomForestClassifier
     },
     "clustering":{
-        "AffinityPropagation":AffinityPropagation,
-        "AgglomerativeClustering":AgglomerativeClustering,
+        "Affinity Propagation":AffinityPropagation,
+        "Agglomerative Clustering":AgglomerativeClustering,
         "Birch":Birch,
         "DBSCAN":DBSCAN,
         "KMeans":KMeans
