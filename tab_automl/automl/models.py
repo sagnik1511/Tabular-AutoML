@@ -30,6 +30,5 @@ single_model_dict = {
         "Birch":Birch,
         "DBSCAN":DBSCAN,
         "KMeans":KMeans
-
     }
 }
