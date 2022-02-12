@@ -31,11 +31,11 @@ single_model_dict = {
         "XGBoost Classifier": XGBClassifier,
         "KNN Classifier": KNeighborsClassifier
     },
-    "clustering":{
-        "Affinity Propagation":AffinityPropagation,
-        "Agglomerative Clustering":AgglomerativeClustering,
-        "Birch":Birch,
-        "DBSCAN":DBSCAN,
-        "KMeans":KMeans
+    "clustering": {
+        "Affinity Propagation": AffinityPropagation,
+        "Agglomerative Clustering": AgglomerativeClustering,
+        "Birch": Birch,
+        "DBSCAN": DBSCAN,
+        "KMeans": KMeans
     }
 }
