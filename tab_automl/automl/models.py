@@ -14,6 +14,11 @@ from sklearn.cluster import AgglomerativeClustering
 from sklearn.cluster import Birch
 from sklearn.cluster import DBSCAN
 from sklearn.cluster import KMeans
+from sklearn.cluster import MiniBatchKMeans
+from sklearn.cluster import MeanShift
+from sklearn.cluster import OPTICS
+from sklearn.cluster import SpectralClustering
+from sklearn.mixture import GaussianMixture
 
 single_model_dict = {
     "regression": {
@@ -36,6 +41,11 @@ single_model_dict = {
         "Agglomerative Clustering": AgglomerativeClustering,
         "Birch": Birch,
         "DBSCAN": DBSCAN,
-        "KMeans": KMeans
+        "KMeans": KMeans,
+        "MiniBatchKMeans": MiniBatchKMeans,
+        "MeanShift": MeanShift,
+        "OPTICS": OPTICS,
+        "SpectralClustering": SpectralClustering,
+        "GaussianMixture": GaussianMixture
     }
 }
