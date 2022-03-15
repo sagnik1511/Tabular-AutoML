@@ -66,6 +66,10 @@ class Encode:
             if self.x[feature].dtype == "object":
                 # Encoding the feature items if the feature is categorical
                 self.encode_single_feature(feature=feature)
+        if self.y.dtypes[0] == "object":
+            unique_items = self.y.iloc[:,0].unique()
+            for index, item in enumerate(unique_items):
+                self.y.replace(item, index, inplace=True)
 
         return self.x, self.y
 
@@ -125,13 +129,13 @@ class FeatureEngineering:
             y: (pandas.DataFrame) Processed target feature
 
         """
-        print("Initiating Feature Engineering...")
+        print(f"Initiating Feature Engineering...")
         # Using Encoder
-        print("Encoding features...")
+        print(f"Encoding features...")
         encoder = Encode(self.x, self.y)
         self.x, self.y = encoder.run()
-        print("Encoding finished...")
+        print(f"Encoding finished...")
 
-        print("Finishing Feature Engineering...")
+        print(f"Finishing Feature Engineering...")
 
         return self.x, self.y

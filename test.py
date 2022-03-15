@@ -9,7 +9,7 @@ from tab_automl.utils.training import train_validation_split
 
 
 def classification_test():
-    print("Testing through Classification AutoML ...")
+    print(f"Testing through Classification AutoML ...")
     # Loading the dataset
     dataset = Iris()
     # X feature set and target feature split
@@ -31,12 +31,14 @@ def classification_test():
     # Preparing train and validation split
     x_train, y_train, x_val, y_val = train_validation_split(x=x, y=y)
     # Training AutoML and saving the best model
-    trainer.single_model_trainer(x_train=x_train, y_train=y_train, x_val=x_val, y_val=y_val, save_model=True)
-    print("Classification test completed successfully...\n")
+    trainer.single_model_trainer(x_train=x_train, y_train=y_train,
+                                 x_val=x_val, y_val=y_val,
+                                 metric_list=["accuracy_score"], save_model=True)
+    print(f"Classification test completed successfully...\n")
 
 
 def regression_test():
-    print("Testing through Regression AutoML ...")
+    print(f"Testing through Regression AutoML ...")
     # Loading the dataset
     dataset = Wine()
     # X feature set and target feature split
@@ -58,8 +60,10 @@ def regression_test():
     # Preparing train and validation split
     x_train, y_train, x_val, y_val = train_validation_split(x=x, y=y)
     # Training AutoML and saving the best model
-    trainer.single_model_trainer(x_train=x_train, y_train=y_train, x_val=x_val, y_val=y_val, save_model=True)
-    print("Regression test completed successfully...\n")
+    trainer.single_model_trainer(x_train=x_train, y_train=y_train,
+                                 x_val=x_val, y_val=y_val,
+                                 metric_list=["mse", "msle"], result_monitor="mse", save_model=True)
+    print(f"Regression test completed successfully...\n")
 
 
 def test():
@@ -67,7 +71,7 @@ def test():
     classification_test()
     # Testing Regression
     regression_test()
-
+   
 
 if __name__ == "__main__":
     test()

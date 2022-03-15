@@ -127,3 +127,17 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# .idea
+.idea/
+
+# written files
+
+best_model.pkl
+feature_engineered_dataframe.csv
+processed_dataframe.csv
+
+# junk files
+results.py
+results.json
+trial.py
