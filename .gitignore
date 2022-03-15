@@ -137,6 +137,7 @@ best_model.pkl
 feature_engineered_dataframe.csv
 processed_dataframe.csv
 
-# for checking results
+# junk files
 results.py
 results.json
+trial.py

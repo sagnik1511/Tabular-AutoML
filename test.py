@@ -31,7 +31,9 @@ def classification_test():
     # Preparing train and validation split
     x_train, y_train, x_val, y_val = train_validation_split(x=x, y=y)
     # Training AutoML and saving the best model
-    trainer.single_model_trainer(x_train=x_train, y_train=y_train, x_val=x_val, y_val=y_val, save_model=True)
+    trainer.single_model_trainer(x_train=x_train, y_train=y_train,
+                                 x_val=x_val, y_val=y_val,
+                                 metric_list=["accuracy_score"], save_model=True)
     print(f"Classification test completed successfully...\n")
 
 
@@ -58,7 +60,9 @@ def regression_test():
     # Preparing train and validation split
     x_train, y_train, x_val, y_val = train_validation_split(x=x, y=y)
     # Training AutoML and saving the best model
-    trainer.single_model_trainer(x_train=x_train, y_train=y_train, x_val=x_val, y_val=y_val, save_model=True)
+    trainer.single_model_trainer(x_train=x_train, y_train=y_train,
+                                 x_val=x_val, y_val=y_val,
+                                 metric_list=["mse", "msle"], result_monitor="mse", save_model=True)
     print(f"Regression test completed successfully...\n")
 
 

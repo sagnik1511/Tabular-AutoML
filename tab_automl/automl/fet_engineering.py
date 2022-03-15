@@ -66,6 +66,10 @@ class Encode:
             if self.x[feature].dtype == "object":
                 # Encoding the feature items if the feature is categorical
                 self.encode_single_feature(feature=feature)
+        if self.y.dtypes[0] == "object":
+            unique_items = self.y.iloc[:,0].unique()
+            for index, item in enumerate(unique_items):
+                self.y.replace(item, index, inplace=True)
 
         return self.x, self.y
 
