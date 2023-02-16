@@ -131,7 +131,7 @@ class ClusteringDataset:
         elif path.endswith(".csv"):
             self.data = pd.read_csv(path)
         else:
-            print("File type not supported")
+            print(f"File type not supported")
         # storing the columns overview
         self.columns = pd.Series([str(self.data[feature].dtype) for feature in self.data.columns])
         self.labels = None
