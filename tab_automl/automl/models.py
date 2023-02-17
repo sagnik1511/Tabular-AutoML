@@ -20,6 +20,9 @@ from sklearn.cluster import OPTICS
 from sklearn.cluster import SpectralClustering
 from sklearn.mixture import GaussianMixture
 from sklearn.tree import DecisionTreeRegressor
+from sklearn.naive_bayes import GaussianNB
+from sklearn.svm import LinearSVC
+from sklearn.svm import SVC
 
 single_model_dict = {
     "regression": {
@@ -37,7 +40,10 @@ single_model_dict = {
         "Light Gradient Boosting Classifier": LGBMClassifier,
         "Random Forest Classifier": RandomForestClassifier,
         "XGBoost Classifier": XGBClassifier,
-        "KNN Classifier": KNeighborsClassifier
+        "KNN Classifier": KNeighborsClassifier,
+        "Gaussian Naive Bayes": GaussianNB,
+        "Linear Support Vector Classifier": LinearSVC,
+        "Support Vector Classifier": SVC,
     },
     "clustering": {
         "Affinity Propagation": AffinityPropagation,
