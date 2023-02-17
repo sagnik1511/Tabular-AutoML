@@ -79,7 +79,7 @@ class Trainer:
             metric_scores = fetch_metric_scores((x_train, y_train),
                                                 (x_val, y_val), metrics=metric_list,
                                                 trained_model=model)
-            print("Model Metrics :")
+            print(f"Model Metrics :")
             print({k: '%.5f'%v[0] for k, v in metric_scores.items()})
             self.model_checkpoint(metric_scores, model_name, model)
 
@@ -108,7 +108,7 @@ class Trainer:
                 flag = False
         else:
             if self.best_score < metric_dict[f"{self.check_on}_{self.result_monitor}"][0]:
-                cprint("Model Updated...", "green")
+                cprint(f"Model Updated...", "green")
                 cprint(f"Current best model : {model_name}", "green")
                 self.best_score = metric_dict[f"{self.check_on}_{self.result_monitor}"][0]
                 self.best_model_name = model_name
@@ -118,4 +118,4 @@ class Trainer:
                 flag = False
 
         if flag:
-            cprint("Model update failed...", "red")
+            cprint(f"Model update failed...", "red")
